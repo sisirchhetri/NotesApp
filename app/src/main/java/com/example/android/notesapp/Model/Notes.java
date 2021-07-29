@@ -1,4 +1,4 @@
-package com.example.android.notesapp;
+package com.example.android.notesapp.Model;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
@@ -17,12 +17,12 @@ public class Notes {
     public String notesSubtitle;
 
 
-    @ColumnInfo(name = "notes_title")
+    @ColumnInfo(name = "notes_date")
     public String notesDate;
 
     @ColumnInfo(name = "notes")
     public String notes;
 
-    @ColumnInfo(name = "notes_title")
+    @ColumnInfo(name = "notes_priority")
     public String  notesPriority;
 }

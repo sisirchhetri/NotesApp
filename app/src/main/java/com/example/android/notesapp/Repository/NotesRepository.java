@@ -1,9 +1,13 @@
-package com.example.android.notesapp;
+package com.example.android.notesapp.Repository;
 
 
 import android.app.Application;
 
 import androidx.lifecycle.LiveData;
+
+import com.example.android.notesapp.Dao.NotesDao;
+import com.example.android.notesapp.Model.Notes;
+import com.example.android.notesapp.Database.NotesDatabase;
 
 import java.util.List;
 

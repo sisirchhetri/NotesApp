@@ -1,10 +1,12 @@
-package com.example.android.notesapp;
+package com.example.android.notesapp.ViewModel;
 
 import android.app.Application;
-import android.provider.ContactsContract;
 
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
+
+import com.example.android.notesapp.Model.Notes;
+import com.example.android.notesapp.Repository.NotesRepository;
 
 import java.util.List;
 
@@ -32,4 +34,6 @@ public class NotesViewModel extends AndroidViewModel {
     public void deleteNote (int id){
         repository.deleteNotes(id);
     }
+
+
 }

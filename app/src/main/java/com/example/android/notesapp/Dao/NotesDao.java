@@ -1,10 +1,12 @@
-package com.example.android.notesapp;
+package com.example.android.notesapp.Dao;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
+
+import com.example.android.notesapp.Model.Notes;
 
 import java.util.List;
 
