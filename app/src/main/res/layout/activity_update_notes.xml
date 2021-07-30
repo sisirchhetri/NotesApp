@@ -15,7 +15,7 @@
         tools:context=".Activity.InsertNotesActivity">
 
         <EditText
-            android:id="@+id/notes_title"
+            android:id="@+id/update_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -24,11 +24,13 @@
             android:background="@drawable/edit_text_background"
             android:fontFamily="@font/product_sans_regular"
             android:hint="Title..."
+            android:textColorHint="@color/grey"
+            android:textColor="@color/black"
             android:padding="15dp"
             android:autofillHints="title" />
 
         <EditText
-            android:id="@+id/notes_subtitle"
+            android:id="@+id/update_subtitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -37,6 +39,8 @@
             android:background="@drawable/edit_text_background"
             android:fontFamily="@font/product_sans_regular"
             android:hint="Subtitle..."
+            android:textColorHint="@color/grey"
+            android:textColor="@color/black"
             android:padding="15dp" />
 
         <LinearLayout
@@ -58,19 +62,22 @@
                 android:textSize="18sp" />
 
             <ImageView
+                android:id="@+id/green_priority"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_margin="10dp"
                 android:background="@drawable/green_shape"
-                android:src="@drawable/ic_baseline_check_24" />
+                />
 
             <ImageView
+                android:id="@+id/yellow_priority"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_margin="10dp"
                 android:background="@drawable/yellow_shape" />
 
             <ImageView
+                android:id="@+id/red_priority"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_margin="10dp"
@@ -79,7 +86,7 @@
         </LinearLayout>
 
         <EditText
-            android:id="@+id/notes"
+            android:id="@+id/update_notes"
             android:layout_width="match_parent"
             android:layout_height="300dp"
             android:layout_marginStart="16dp"
@@ -88,7 +95,9 @@
             android:background="@drawable/edit_text_background"
             android:fontFamily="@font/product_sans_regular"
             android:gravity="start"
-            android:hint="Notes"
+            android:hint="Notes..."
+            android:textColorHint="@color/grey"
+            android:textColor="@color/black"
             android:padding="15dp" />
 
 
@@ -96,6 +105,7 @@
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/update_notes_btn"
+        android:textColor="@color/black"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
@@ -103,7 +113,7 @@
         android:layout_margin="28dp"
         android:backgroundTint="@color/red"
         android:clickable="true"
-        android:src="@drawable/ic_baseline_check_24" />
+        android:src="@drawable/ic_baseline_done_24" />
 
 </RelativeLayout>
 

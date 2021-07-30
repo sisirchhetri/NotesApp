@@ -16,7 +16,9 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
-   
+    buildFeatures{
+        viewBinding = true
+    }
 
     buildTypes {
         release {
@@ -48,6 +50,8 @@ dependencies {
 
     // Room -Database- components
     implementation "androidx.room:room-runtime:$rootProject.roomVersion"
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation 'org.jetbrains:annotations:15.0'
     annotationProcessor "androidx.room:room-compiler:$rootProject.roomVersion"
     androidTestImplementation "androidx.room:room-testing:$rootProject.roomVersion"
 

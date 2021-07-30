@@ -20,11 +20,12 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
+            android:autofillHints="title"
             android:background="@drawable/edit_text_background"
             android:fontFamily="@font/product_sans_regular"
             android:hint="Title..."
             android:padding="15dp"
-            android:autofillHints="title" />
+            android:textColor="@color/black" />
 
         <EditText
             android:id="@+id/notes_subtitle"
@@ -36,7 +37,9 @@
             android:background="@drawable/edit_text_background"
             android:fontFamily="@font/product_sans_regular"
             android:hint="Subtitle..."
-            android:padding="15dp" />
+            android:padding="15dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/grey" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -57,6 +60,7 @@
                 android:textSize="18sp" />
 
             <ImageView
+                android:id="@+id/green_priority"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_margin="10dp"
@@ -64,12 +68,14 @@
                 android:src="@drawable/ic_baseline_done_24" />
 
             <ImageView
+                android:id="@+id/yellow_priority"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_margin="10dp"
                 android:background="@drawable/yellow_shape" />
 
             <ImageView
+                android:id="@+id/red_priority"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_margin="10dp"
@@ -78,7 +84,7 @@
         </LinearLayout>
 
         <EditText
-            android:id="@+id/notes"
+            android:id="@+id/notesData"
             android:layout_width="match_parent"
             android:layout_height="300dp"
             android:layout_marginStart="16dp"
@@ -87,8 +93,10 @@
             android:background="@drawable/edit_text_background"
             android:fontFamily="@font/product_sans_regular"
             android:gravity="start"
-            android:hint="Notes"
-            android:padding="15dp" />
+            android:hint="Notes..."
+            android:padding="15dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black" />
 
 
     </LinearLayout>
