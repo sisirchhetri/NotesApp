@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#E8E8E8"
     tools:context=".Activity.InsertNotesActivity">
 
@@ -23,9 +24,10 @@
             android:autofillHints="title"
             android:background="@drawable/edit_text_background"
             android:fontFamily="@font/product_sans_regular"
-            android:hint="Title..."
+            android:hint="@string/hint_title"
             android:padding="15dp"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:inputType="text" />
 
         <EditText
             android:id="@+id/notes_subtitle"
@@ -36,10 +38,11 @@
             android:layout_marginEnd="16dp"
             android:background="@drawable/edit_text_background"
             android:fontFamily="@font/product_sans_regular"
-            android:hint="Subtitle..."
+            android:hint="@string/hint_subtitle"
             android:padding="15dp"
             android:textColor="@color/black"
-            android:textColorHint="@color/grey" />
+            android:inputType="text"
+            />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -55,7 +58,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:fontFamily="@font/product_sans_regular"
-                android:text="Priority"
+                android:text="@string/priority"
                 android:textColor="@color/black"
                 android:textSize="18sp" />
 
@@ -93,10 +96,11 @@
             android:background="@drawable/edit_text_background"
             android:fontFamily="@font/product_sans_regular"
             android:gravity="start"
-            android:hint="Notes..."
+            android:hint="@string/hint_notes"
             android:padding="15dp"
+            android:inputType="text"
             android:textColor="@color/black"
-            android:textColorHint="@color/black" />
+             />
 
 
     </LinearLayout>
@@ -105,10 +109,10 @@
         android:id="@+id/done_notes_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_margin="28dp"
-        android:backgroundTint="@color/red"
+        app:backgroundTint="@color/red"
         android:clickable="true"
         android:src="@drawable/ic_baseline_done_24" />
 

@@ -1,4 +1,16 @@
 <resources>
-    <string name="app_name">Notes App</string>
+    <string name="app_name">Note It</string>
+    <string name="no_filters">No filters</string>
+    <string name="high_to_low">High to Low</string>
+    <string name="low_to_high">Low to High</string>
+    <string name="create_notes">create notes</string>
+    <string name="filter_image">filter image</string>
+    <string name="hint_title">Title...</string>
+    <string name="hint_subtitle">Subtitle...</string>
+    <string name="priority">Priority</string>
+    <string name="hint_notes">Notes...</string>
+    <string name="green">green</string>
+    <string name="yellow">yellow</string>
+    <string name="red">red</string>
 
 </resources>

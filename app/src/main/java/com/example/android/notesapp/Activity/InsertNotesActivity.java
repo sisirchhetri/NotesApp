@@ -2,8 +2,10 @@ package com.example.android.notesapp.Activity;
 
 import android.os.Bundle;
 import android.text.format.DateFormat;
+import android.util.Log;
 import android.widget.Toast;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -21,6 +23,15 @@ public class InsertNotesActivity extends AppCompatActivity {
     String priority = "1";
     NotesViewModel notesViewModel;
 
+    // this event will enable the back
+    // function to the button on press
+    @Override
+    public boolean onSupportNavigateUp() {
+        Log.v("ActionBar","Inside onSupportNavigation InsertNotes");
+        finish();
+        return true;
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +40,17 @@ public class InsertNotesActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         notesViewModel = new ViewModelProvider(this).get(NotesViewModel.class);
+
+
+        // calling the action bar
+        ActionBar actionBar = getSupportActionBar();
+
+        // showing the back button in action bar
+        //assert actionBar != null; or  assert getSupportActionBar() != null;   //null check
+        if(actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            Log.v("ActionBar","Inside if onCreate InsertNotes");
+        }
 
 
         binding.greenPriority.setOnClickListener(v -> {

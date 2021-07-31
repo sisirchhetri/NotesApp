@@ -9,6 +9,8 @@ import android.os.Handler;
 import com.example.android.notesapp.MainActivity;
 import com.example.android.notesapp.R;
 
+import java.util.Objects;
+
 public class SplashScreen extends AppCompatActivity {
 
     @Override
@@ -16,7 +18,7 @@ public class SplashScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
 
-        getSupportActionBar().hide();
+        Objects.requireNonNull(getSupportActionBar()).hide();
 
         new Handler().postDelayed(new Runnable() {
             @Override

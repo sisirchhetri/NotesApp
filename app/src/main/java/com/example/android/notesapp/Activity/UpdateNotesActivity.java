@@ -2,6 +2,7 @@ package com.example.android.notesapp.Activity;
 
 import android.os.Bundle;
 import android.text.format.DateFormat;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -30,6 +32,15 @@ public class UpdateNotesActivity extends AppCompatActivity {
     int id;
     String title, subtitle, notes;
 
+    //  enable the back function to the button on press
+    //  called when overridden onOptionsItemSelected(item) returns false;
+    @Override
+    public boolean onSupportNavigateUp() {
+        Log.v("Back Button", "Inside onSupportNavigation");
+        finish();
+        return true;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +48,17 @@ public class UpdateNotesActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         notesViewModel = new ViewModelProvider(this).get(NotesViewModel.class);
+
+        Log.v("ActionBar", "Inside onCreate");
+        // calling the action bar
+        ActionBar actionBar = getSupportActionBar();
+
+        // showing the back button in action bar
+        //assert actionBar != null; or  assert getSupportActionBar() != null;   //null check
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            Log.v("ActionBar", "Inside if-else");
+        }
 
 
         id = getIntent().getIntExtra("id", 0);
@@ -115,43 +137,55 @@ public class UpdateNotesActivity extends AppCompatActivity {
         finish();
     }
 
-    /** Attaching the delete menu list  on the update layout*/
+    /**
+     * Attaching the delete menu list  on the update layout
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 //        return super.onCreateOptionsMenu(menu);
 
-        getMenuInflater().inflate(R.menu.delete_menu,menu);
-        return  true;
+        getMenuInflater().inflate(R.menu.delete_menu, menu);
+        return true;
     }
 
-    /** Handles click event of the Menu Items*/
+    /**
+     * Handles click event of the Menu Items
+     */
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 //        return super.onOptionsItemSelected(item);
-        switch (item.getItemId()){
 
-            case R.id.delete_item:
-                BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(UpdateNotesActivity.this,R.style.BottomSheetStyle);
-                View view = LayoutInflater.from(UpdateNotesActivity.this).inflate(R.layout.delete_bottom_sheet,
-                        (LinearLayout)findViewById(R.id.bottom_sheet));
+        if (item.getItemId() == R.id.delete_item) {
+            BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(UpdateNotesActivity.this, R.style.BottomSheetStyle);
+            View view = LayoutInflater.from(UpdateNotesActivity.this).inflate(R.layout.delete_bottom_sheet,
+                    (LinearLayout) findViewById(R.id.bottom_sheet));
 
-                bottomSheetDialog.setContentView(view);
+            bottomSheetDialog.setContentView(view);
 
-                TextView yes = view.findViewById(R.id.delete_yes);
-                TextView no =  view.findViewById(R.id.delete_no);
+            TextView yes = view.findViewById(R.id.delete_yes);
+            TextView no = view.findViewById(R.id.delete_no);
 
-                yes.setOnClickListener(v -> {
+            yes.setOnClickListener(v -> {
 
-                    notesViewModel.deleteNote(id);
-                    finish();
-                });
+                notesViewModel.deleteNote(id);
+                Toast.makeText(UpdateNotesActivity.this, "Notes Deleted Successfully", Toast.LENGTH_SHORT).show();
+                finish();
+            });
 
-                no.setOnClickListener(v -> bottomSheetDialog.dismiss());
+            no.setOnClickListener(v -> bottomSheetDialog.dismiss());
 
-                bottomSheetDialog.show();
+            bottomSheetDialog.show();
 
+            return true;
         }
 
-        return  true;
+        else {
+            Log.v("ActionBar", "Inside else onOptionsItemSelected ");
+           return super.onOptionsItemSelected(item);
+//            boolean Return false to allow normal menu processing to proceed (back button also)
+//            true to consume it here
+//              return false
+        }
+
     }
 }

@@ -14,16 +14,24 @@ import com.example.android.notesapp.MainActivity;
 import com.example.android.notesapp.Model.Notes;
 import com.example.android.notesapp.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHolder> {
 
     MainActivity mainActivity;
     List<Notes> notes;
+    List<Notes> allNotesItem;
 
     public NotesAdapter(MainActivity mainActivity, List<Notes> notes) {
         this.mainActivity = mainActivity;
         this.notes = notes;
+        allNotesItem = new ArrayList<>(notes);
+    }
+
+    public  void  searchNotes( List<Notes> filteredNotes){
+        this.notes = filteredNotes;
+        notifyDataSetChanged();
     }
 
     @NonNull
