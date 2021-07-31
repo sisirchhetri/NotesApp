@@ -2,7 +2,6 @@ package com.example.android.notesapp.Activity;
 
 import android.os.Bundle;
 import android.text.format.DateFormat;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -34,12 +33,12 @@ public class UpdateNotesActivity extends AppCompatActivity {
 
     //  enable the back function to the button on press
     //  called when overridden onOptionsItemSelected(item) returns false;
-    @Override
-    public boolean onSupportNavigateUp() {
-        Log.v("Back Button", "Inside onSupportNavigation");
-        finish();
-        return true;
-    }
+//    @Override
+//    public boolean onSupportNavigateUp() {
+//        Log.v("Back Button", "Inside onSupportNavigation");
+//        finish();
+//        return true;
+//    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +48,6 @@ public class UpdateNotesActivity extends AppCompatActivity {
 
         notesViewModel = new ViewModelProvider(this).get(NotesViewModel.class);
 
-        Log.v("ActionBar", "Inside onCreate");
         // calling the action bar
         ActionBar actionBar = getSupportActionBar();
 
@@ -57,7 +55,7 @@ public class UpdateNotesActivity extends AppCompatActivity {
         //assert actionBar != null; or  assert getSupportActionBar() != null;   //null check
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
-            Log.v("ActionBar", "Inside if-else");
+
         }
 
 
@@ -179,12 +177,17 @@ public class UpdateNotesActivity extends AppCompatActivity {
             return true;
         }
 
+        //back/up button click (also the home id given to it by def )
+        else if(item.getItemId() == android.R.id.home){
+            this.finish();
+            return true;
+        }
+
         else {
-            Log.v("ActionBar", "Inside else onOptionsItemSelected ");
+
            return super.onOptionsItemSelected(item);
 //            boolean Return false to allow normal menu processing to proceed (back button also)
-//            true to consume it here
-//              return false
+//            true to consume it here.
         }
 
     }

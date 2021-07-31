@@ -2,7 +2,6 @@ package com.example.android.notesapp.Activity;
 
 import android.os.Bundle;
 import android.text.format.DateFormat;
-import android.util.Log;
 import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
@@ -27,7 +26,6 @@ public class InsertNotesActivity extends AppCompatActivity {
     // function to the button on press
     @Override
     public boolean onSupportNavigateUp() {
-        Log.v("ActionBar","Inside onSupportNavigation InsertNotes");
         finish();
         return true;
     }
@@ -49,7 +47,7 @@ public class InsertNotesActivity extends AppCompatActivity {
         //assert actionBar != null; or  assert getSupportActionBar() != null;   //null check
         if(actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
-            Log.v("ActionBar","Inside if onCreate InsertNotes");
+
         }
 
 

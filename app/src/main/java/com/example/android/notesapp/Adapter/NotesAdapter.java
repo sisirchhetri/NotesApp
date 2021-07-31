@@ -1,6 +1,7 @@
 package com.example.android.notesapp.Adapter;
 
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,14 +24,19 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHol
     List<Notes> notes;
     List<Notes> allNotesItem;
 
+
+
     public NotesAdapter(MainActivity mainActivity, List<Notes> notes) {
         this.mainActivity = mainActivity;
         this.notes = notes;
         allNotesItem = new ArrayList<>(notes);
+
     }
 
     public  void  searchNotes( List<Notes> filteredNotes){
         this.notes = filteredNotes;
+        Log.v("Adapter","NotifyDataSetChanged Called");
+
         notifyDataSetChanged();
     }
 
@@ -40,7 +46,7 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHol
     public NotesViewHolder onCreateViewHolder(@NonNull @org.jetbrains.annotations.NotNull ViewGroup parent, int viewType) {
 
         View view = LayoutInflater.from(mainActivity).inflate(R.layout.item_notes,parent,false);
-
+      
         return new NotesViewHolder(view);
     }
 
